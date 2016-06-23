@@ -1,8 +1,10 @@
 Rails.application.routes.draw do
+  get 'bookmarks/index'
+
+  devise_for :users
+
   get 'welcome/home'
-
   get 'welcome/about'
-
   get 'welcome/contact'
 
   root 'welcome#home'
