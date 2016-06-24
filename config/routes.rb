@@ -7,6 +7,8 @@ Rails.application.routes.draw do
   get 'welcome/about'
   get 'welcome/contact'
 
+  get 'bookmarks/index'
+
   root 'welcome#home'
 
   # The priority is based upon order of creation: first created -> highest priority.
