@@ -1,8 +1,11 @@
 source 'https://rubygems.org'
-
+# for authentication of user
+gem 'devise'
+# for making css eaiser
+gem 'bootstrap-sass'
 # Bundle edge Rails instead: gem 'rails', github: 'rails/rails'
 gem 'rails', '4.2.6'
-
+gem 'rails_admin'
 group :production do
   gem 'pg'
   gem 'rails_12factor'

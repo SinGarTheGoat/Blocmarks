@@ -1,2 +1,10 @@
 <h1>Welcome#home</h1>
 <p>Find me in app/views/welcome/home.html.erb</p>
+<%if user_signed_in? %>
+<%= link_to "Sign out", destroy_user_session_path, :method => :delete %>
+<%= link_to "bookmarks", bookmarks_index_path %>
+<%= link_to "Edit password", edit_user_password_path %>
+<% else %>
+ <li><%= link_to "Sign up", new_user_registration_path %>
+ <li><%=link_to "Sign in" , new_user_session_path %></li>
+<%end %>
