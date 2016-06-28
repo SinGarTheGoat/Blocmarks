@@ -1,6 +1,5 @@
 FactoryGirl.define do
   factory :topic do
-    title "MyString"
-    user nil
+    title "Title-of-Topic"
   end
 end

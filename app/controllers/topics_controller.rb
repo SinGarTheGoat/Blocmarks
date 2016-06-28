@@ -16,6 +16,7 @@ class TopicsController < ApplicationController
     @topic.destroy
     redirect_to topics_path
   end
+
   def create
     @topic = Topic.new(topic_params)
     if @topic.save

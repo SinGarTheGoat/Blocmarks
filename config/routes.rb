@@ -1,16 +1,7 @@
 Rails.application.routes.draw do
-  # get 'topics/index'
-  #
-  # get 'topics/show'
-  #
-  # get 'topics/new'
-  #
-  # get 'topics/edit'
+
   resources :topics, only: [:new, :show, :create, :destroy]
 
-
-
-  #get 'bookmarks/index'
 
   devise_for :users
 
@@ -18,7 +9,7 @@ Rails.application.routes.draw do
   get 'welcome/about'
   get 'welcome/contact'
 
-  #get 'bookmarks/index'
+
 
   root 'welcome#home'
 
