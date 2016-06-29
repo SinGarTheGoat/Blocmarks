@@ -1,5 +1,6 @@
 <h1>Topics#show</h1>
 <p>Find me in app/views/topics/show.html.erb</p>
+<%= link_to "Add Bookmark", topic_bookmark_path( @topic, @topic.bookmarks), class: 'btn btn-success' %>
 <%= @topic.title %>
 <% @topic.bookmarks.each do |bookmark| %>
   <%= bookmark.url %>

@@ -1,21 +1,18 @@
 Rails.application.routes.draw do
 
   get 'bookmarks/show'
-
   get 'bookmarks/new'
-
   get 'bookmarks/edit'
 
-  resources :topics, only: [:new, :show, :create, :destroy, :index]
-  #get 'topics/index'
+  resources :topics, only: [:new, :show, :create, :destroy, :index] do
+    resources :bookmarks , only: [:show, :new, :edit]
+  end
 
   devise_for :users
 
   get 'welcome/home'
   get 'welcome/about'
   get 'welcome/contact'
-
-
 
   root 'welcome#home'
 
