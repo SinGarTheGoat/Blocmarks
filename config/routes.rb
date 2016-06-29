@@ -1,7 +1,13 @@
 Rails.application.routes.draw do
 
-  resources :topics, only: [:new, :show, :create, :destroy]
+  get 'bookmarks/show'
 
+  get 'bookmarks/new'
+
+  get 'bookmarks/edit'
+
+  resources :topics, only: [:new, :show, :create, :destroy, :index]
+  #get 'topics/index'
 
   devise_for :users
 

@@ -11,7 +11,19 @@
 </head>
 
 <body>
-<div class="red"><h1>test div   </h1></div>
+  <div class="red">
+    <ul>
+        <li><%= link_to "Home", root_path %></li>
+        <%if user_signed_in? %>
+          <li><%= link_to "Sign out", destroy_user_session_path, :method => :delete %></li>
+          <li><%= link_to "Create a new topic", new_topic_path %></li>
+          <% else %>
+          <li><%= link_to "Sign up", new_user_registration_path %></li>
+          <li><%=link_to "Sign in" , new_user_session_path %></li>
+          <%end %>
+    </ul>
+
+  </div>
 
 <% if flash[:notice] %>
   <div class="alert alert-success" role="alert"><%= flash[:notice] %></div>
