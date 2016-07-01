@@ -1,8 +1,7 @@
 <h1>Bookmarks#new</h1>
 <p>Find me in app/views/bookmarks/new.html.erb</p>
-<%= form_for @bookmark do |f| %>
+<%= form_for [@topic, @bookmark] do |f| %>
   <%= f.label :url %>
   <%= f.text_field :url %>
-
   <%= f.submit "Save" %>
 <% end %>
