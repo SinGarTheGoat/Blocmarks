@@ -1,2 +1,7 @@
-<h1>Bookmarks#edit</h1>
-<p>Find me in app/views/bookmarks/edit.html.erb</p>
+<h1>Eddit url for <%=@bookmark.url %> in topic <%=@bookmark.topic.title %></h1>
+<h3>Please note that bookmark urls MUST start with "http://www."</h3>
+<%= form_for [@bookmark.topic, @bookmark] do |f| %>
+  <%= f.label :url %>
+  <%= f.text_field :url, class: 'form-control', placeholder: "Enter bookmark" %>
+  <%= f.submit "Save" %>
+<% end %>

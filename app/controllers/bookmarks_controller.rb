@@ -9,7 +9,20 @@ class BookmarksController < ApplicationController
   end
 
   def edit
-    #  @bookmark = Bookmark.find(params[:id])
+    topic = Topic.find(params[:topic_id])
+    @bookmark = topic.bookmarks.find(params[:id])
+  end
+
+  def update
+    topic = Topic.find(params[:topic_id])
+    @bookmark = topic.bookmarks.find(params[:id])
+    if @bookmark.update(bookmark_params)
+      flash[:notice] = 'bookmark was saved successfully.'
+      redirect_to topic
+    else
+      flash.now[:alert] = @bookmark.errors.full_messages.first
+      render :edit
+    end
   end
 
   def create
@@ -24,9 +37,9 @@ class BookmarksController < ApplicationController
       flash.now[:alert] = 'Error creating bookmark. Please try again.'
       render :new
     end
-
+  end
     def destroy
-      @topic = Topic.find(params[:post_id])
+      @topic = Topic.find(params[:topic_id])
       @bookmark = Bookmark.find(params[:id])
       if @bookmark.destroy
         flash[:notice] = "\"#{@bookmark}\" was deleted successfully."
@@ -37,7 +50,7 @@ class BookmarksController < ApplicationController
         render :show
       end
      end
-  end
+
 
   private
 

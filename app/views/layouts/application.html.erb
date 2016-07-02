@@ -1,46 +1,75 @@
 <!DOCTYPE html>
 <html>
-<head>
-  <title>Blocmarks</title>
-  <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track' => true %>
-  <link type="text/css" rel="stylesheet" href="https://cdn.jsdelivr.net/jquery.jssocials/1.2.1/jssocials.css" />
+    <head>
+        <title>Blocmarks</title>
+        <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track' => true %>
+        <link type="text/css" rel="stylesheet" href="https://cdn.jsdelivr.net/jquery.jssocials/1.2.1/jssocials.css"/>
 
-  <link type="text/css" rel="stylesheet" href="https://cdn.jsdelivr.net/jquery.jssocials/1.2.1/jssocials-theme-flat.css" />
-  <%= javascript_include_tag 'application', 'data-turbolinks-track' => true %>
-  <%= csrf_meta_tags %>
-</head>
+        <link type="text/css" rel="stylesheet" href="https://cdn.jsdelivr.net/jquery.jssocials/1.2.1/jssocials-theme-flat.css"/>
+        <%= javascript_include_tag 'application', 'data-turbolinks-track' => true %>
+        <%= csrf_meta_tags %>
+    </head>
 
-<body>
-  <div class="red">
-    <ul>
-        <li><%= link_to "Home", root_path %></li>
-        <%if user_signed_in? %>
-          <li><%= link_to "Sign out", destroy_user_session_path, :method => :delete %></li>
-          <li><%= link_to "Create a new topic", new_topic_path %></li>
-          <li><%= link_to "View all topics", topics_path %></li>
-          <% else %>
-          <li><%= link_to "Sign up", new_user_registration_path %></li>
-          <li><%=link_to "Sign in" , new_user_session_path %></li>
-          <%end %>
-    </ul>
+    <body>
+        <div class="red">
+            <div class="container">
+                <div class="row">
+                    <div class="col-md-3">
+                        <ul>
+                            <li><%= link_to "Home", root_path %></li>
+                            <%if user_signed_in? %>
+                            <li><%= link_to "Sign out", destroy_user_session_path, :method => :delete %></li>
+                        <% else %>
+                            <li><%= link_to "Sign up", new_user_registration_path %></li>
+                            <li><%=link_to "Sign in" , new_user_session_path %></li>
+                            <%end %>
+                        </div>
+                        <div class="col-md-3">
+                            <li><%= link_to "View all topics", topics_path %></li>
+                            <%if user_signed_in? %>
+                            <li><%= link_to "Create a new topic", new_topic_path %></li>
+                            <%end %>
 
-  </div>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <% if flash[:notice] %>
+        <div class="alert alert-success" role="alert"><%= flash[:notice] %></div>
+        <%end%>
 
-<% if flash[:notice] %>
-  <div class="alert alert-success" role="alert"><%= flash[:notice] %></div>
-<%end%>
-
-<% if flash[:alert] %>
-  <div class="alert alert-danger" role="alert"><%= flash[:alert] %></div>
-<%end%>
-
-<%= yield %>
-  <div id='share'></div>
-<script type="text/javascript" src="https://cdn.jsdelivr.net/jquery.jssocials/1.2.1/jssocials.min.js"></script>
-<script>
-       $("#share").jsSocials({
-           shares: ["email", "twitter", "facebook", "googleplus", "linkedin", "pinterest", "stumbleupon", "whatsapp"]
-       });
-   </script>
-</body>
+        <% if flash[:alert] %>
+        <div class="alert alert-danger" role="alert"><%= flash[:alert] %></div>
+        <%end%>
+        <div class="container">
+            <div class="row">
+                <div class="col-md-6">
+                    test
+                </div>
+                <div class="col-md-6">
+                    test2
+                </div>
+            </div>
+            <%= yield %>
+        </div>
+        <div class="container">
+            <div id='share'></div>
+            <script type="text/javascript" src="https://cdn.jsdelivr.net/jquery.jssocials/1.2.1/jssocials.min.js"></script>
+            <script>
+                $("#share").jsSocials({
+                    shares: [
+                        "email",
+                        "twitter",
+                        "facebook",
+                        "googleplus",
+                        "linkedin",
+                        "pinterest",
+                        "stumbleupon",
+                        "whatsapp"
+                    ]
+                });
+            </script>
+        </div>
+    </body>
 </html>
