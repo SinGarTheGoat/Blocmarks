@@ -6,7 +6,6 @@ tmp/**/*
 public/assets
 public/system
 public/uploads
-config/database.yml
 config/s3.yml
 config/unicorn.rb
 .project
