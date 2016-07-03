@@ -20,3 +20,4 @@ nbproject
 .rspec
 .env
 .bundle/config
+config/application.yml
