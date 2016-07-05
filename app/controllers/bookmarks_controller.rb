@@ -41,7 +41,7 @@ class BookmarksController < ApplicationController
         @topic = Topic.find(params[:topic_id])
         @bookmark = Bookmark.find(params[:id])
         if @bookmark.destroy
-            flash[:notice] = "\"#{@bookmark}\" was deleted successfully."
+            flash[:notice] = "#{@bookmark.url} was deleted successfully."
             redirect_to @topic
         else
             flash.now[:alert] = 'There was an error deleting the post.'
