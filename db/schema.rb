@@ -10,7 +10,7 @@
 # you'll amass, the slower it'll run and the greater likelihood for issues).
 #
 # It's strongly recommended that you check this file into your version control system.
-
+ 
 ActiveRecord::Schema.define(version: 20_160_627_215_643) do
   create_table 'bookmarks', force: :cascade do |t|
     t.string   'url'
