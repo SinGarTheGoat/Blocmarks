@@ -13,6 +13,8 @@ Rails.application.routes.draw do
   get 'welcome/about'
   get 'welcome/contact'
 
+  post :incoming, to: 'incoming#create'
+
   root 'welcome#home'
 
   # The priority is based upon order of creation: first created -> highest priority.

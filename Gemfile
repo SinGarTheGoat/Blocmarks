@@ -13,6 +13,7 @@ group :production do
 end
 
 group :development do
+  gem 'awesome_print'
   gem 'sqlite3'
 end
 
@@ -26,6 +27,7 @@ gem 'figaro'
 gem 'pry'
 
 group :development, :test do
+  gem 'pry-rails'
   gem 'byebug'
   gem 'web-console', '~> 2.0'
   gem 'spring'

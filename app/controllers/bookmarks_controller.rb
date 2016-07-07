@@ -28,8 +28,7 @@ class BookmarksController < ApplicationController
   def create
     @topic = Topic.find(params[:topic_id])
     @bookmark = @topic.bookmarks.build(bookmark_params)
-    # @bookmark.user = current_user
-    # @new_bookmark = Bookmark.new
+     #@bookmark.user = current_user
     if @bookmark.save
       flash[:notice] = 'bookmark was saved successfully.'
       redirect_to @topic
