@@ -8,4 +8,3 @@ class CreateTopics < ActiveRecord::Migration
     end
   end
 end
- 

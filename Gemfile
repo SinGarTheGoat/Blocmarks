@@ -6,12 +6,14 @@ gem 'bootstrap-sass'
 # Bundle edge Rails instead: gem 'rails', github: 'rails/rails'
 gem 'rails', '4.2.6'
 gem 'rails_admin'
+
 group :production do
   gem 'pg'
   gem 'rails_12factor'
 end
 
 group :development do
+  gem 'awesome_print'
   gem 'sqlite3'
 end
 
@@ -25,6 +27,7 @@ gem 'figaro'
 gem 'pry'
 
 group :development, :test do
+  gem 'pry-rails'
   gem 'byebug'
   gem 'web-console', '~> 2.0'
   gem 'spring'

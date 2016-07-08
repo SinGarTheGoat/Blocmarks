@@ -1,0 +1,7 @@
+<h1>Add a new bookmark to <%=@topic.title %></h1>
+<h3>Please note that bookmark urls MUST start with "http://www."</h3>
+<%= form_for [@topic, @bookmark] do |f| %>
+  <%= f.label :url %>
+  <%= f.text_field :url %>
+  <%= f.submit "Save" %>
+<% end %>

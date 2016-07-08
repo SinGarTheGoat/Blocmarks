@@ -6,7 +6,6 @@ tmp/**/*
 public/assets
 public/system
 public/uploads
-config/database.yml
 config/s3.yml
 config/unicorn.rb
 .project
@@ -20,3 +19,5 @@ node_modules
 nbproject
 .rspec
 .env
+.bundle/config
+config/application.yml

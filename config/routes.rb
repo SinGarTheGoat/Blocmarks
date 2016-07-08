@@ -1,7 +1,11 @@
 Rails.application.routes.draw do
+  get 'bookmarks/show'
+  get 'bookmarks/new'
+  get 'bookmarks/edit'
 
-  resources :topics, only: [:new, :show, :create, :destroy]
-
+  resources :topics, only: [:new, :show, :create, :destroy, :index] do
+    resources :bookmarks, only: [:show, :new, :edit, :update, :create, :destroy]
+  end
 
   devise_for :users
 
@@ -9,7 +13,7 @@ Rails.application.routes.draw do
   get 'welcome/about'
   get 'welcome/contact'
 
-
+  post :incoming, to: 'incoming#create'
 
   root 'welcome#home'
 
