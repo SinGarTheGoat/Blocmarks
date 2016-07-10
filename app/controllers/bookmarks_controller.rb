@@ -1,21 +1,27 @@
 class BookmarksController < ApplicationController
+before_action :authenticate_user!, :except => ["show", "index"]
     def show
         @bookmark = Bookmark.find(params[:id])
+        authorize(@bookmark)
     end
 
     def new
         @topic = Topic.find(params[:topic_id])
         @bookmark = Bookmark.new
+        authorize(@bookmark)
     end
 
     def edit
-        topic = Topic.find(params[:topic_id])
-        @bookmark = topic.bookmarks.find(params[:id])
+          @topic = Topic.find(params[:topic_id])
+          @bookmark = @topic.bookmarks.find(params[:id])
+          authorize(@bookmark)
+
     end
 
     def update
         topic = Topic.find(params[:topic_id])
         @bookmark = topic.bookmarks.find(params[:id])
+        authorize(@bookmark)
         if @bookmark.update(bookmark_params)
             flash[:notice] = 'bookmark was saved successfully.'
             redirect_to topic
@@ -28,7 +34,8 @@ class BookmarksController < ApplicationController
     def create
         @topic = Topic.find(params[:topic_id])
         @bookmark = @topic.bookmarks.build(bookmark_params)
-        # @bookmark.user = current_user
+        @bookmark.user = current_user
+        authorize(@bookmark)
         if @bookmark.save
             flash[:notice] = 'bookmark was saved successfully.'
             redirect_to @topic
@@ -41,13 +48,14 @@ class BookmarksController < ApplicationController
     def destroy
         topic = Topic.find(params[:topic_id])
         bookmark = Bookmark.find(params[:id])
+        authorize(bookmark)
         if bookmark.destroy
             flash[:notice] = "\"#{bookmark.url}\" was deleted successfully."
             redirect_to topic
 
         else
-            flash.now[:alert] = 'There was an error deleting the post.'
-            render :show
+            flash[:alert] = 'There was an error deleting the post.'
+            redirect_to topic
         end
      end
 
