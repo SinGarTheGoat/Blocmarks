@@ -6,6 +6,8 @@ gem 'bootstrap-sass'
 # Bundle edge Rails instead: gem 'rails', github: 'rails/rails'
 gem 'rails', '4.2.6'
 gem 'rails_admin'
+#used for authorizing users
+gem 'pundit'
 
 group :production do
   gem 'pg'
@@ -14,6 +16,7 @@ end
 
 group :development do
   gem 'awesome_print'
+    gem 'web-console', '~> 2.0'
   gem 'sqlite3'
 end
 
@@ -29,7 +32,6 @@ gem 'pry'
 group :development, :test do
   gem 'pry-rails'
   gem 'byebug'
-  gem 'web-console', '~> 2.0'
   gem 'spring'
   gem 'rspec-rails'
   gem 'shoulda'
