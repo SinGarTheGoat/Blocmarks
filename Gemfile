@@ -16,7 +16,7 @@ end
 
 group :development do
   gem 'awesome_print'
-    gem 'web-console', '~> 2.0'
+  gem 'web-console', '~> 2.0'
   gem 'sqlite3'
 end
 
