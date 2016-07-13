@@ -1,5 +1,5 @@
 <h1> You are in topic <%= @topic.title %> </h1>
-<h1> created by <%= @topic.user_id %> </h1>
+<h1> created by <%= @topic.user.email %> </h1>
 <h3>and these are the associated bookmarks</h3>
 <div>
   <h1><%= @topic.title %><%= link_to "Add Bookmark", new_topic_bookmark_path(@topic), class: 'btn btn-success' %>
