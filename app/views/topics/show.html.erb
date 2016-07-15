@@ -11,8 +11,8 @@
 
                 <% @topic.bookmarks.each do |bookmark| %>
                 <div class="url">
-                    <h1><%= link_to bookmark.url, bookmark.url %>
-                    </h1>
+                    <h1><%= link_to bookmark.url, bookmark.url %> </h1>
+                    <h3> Created by <%=bookmark.user.email %></h3>
                 </div>
                 <%if bookmark.user == current_user%>
                 <%= link_to "Edit bookmark", edit_topic_bookmark_path(bookmark.topic, bookmark), class: 'btn btn-primary btn-xs'%><br>
