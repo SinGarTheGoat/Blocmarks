@@ -10,7 +10,7 @@ class LikesController < ApplicationController
    else
      flash.now[:alert] = 'Error in liking bookmark. Please try again.'
    end
-     redirect_to topics_path#(params[:id])
+     redirect_to topic_path(@bookmark.topic)#(params[:id])
  end
 
  def destroy
@@ -24,6 +24,6 @@ class LikesController < ApplicationController
    else
      flash.now[:alert] = 'Error in unliking bookmark. Please try again.'
    end
-   redirect_to topics_path#(params[:id])
+   redirect_to topic_path(@bookmark.topic)
  end
 end
