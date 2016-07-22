@@ -3,4 +3,5 @@ class Topic < ActiveRecord::Base
   has_many :bookmarks, dependent: :destroy
 
   validates :title, uniqueness: {scope: :user}
+  validates :user_id, presence: true
 end
