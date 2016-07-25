@@ -5,6 +5,7 @@ class LikesController < ApplicationController
    @bookmark = Bookmark.find(params[:bookmark_id])
    like = current_user.likes.build(bookmark: @bookmark)
 
+<<<<<<< HEAD
    if like.save?
      # Add code to generate a success flash and redirect to @bookmark
    else
@@ -21,5 +22,24 @@ class LikesController < ApplicationController
    else
      # Flash error and redirect to @bookmark
    end
+=======
+   if like.save
+       flash[:notice] = "Successfully liked bookmark."
+   else
+     flash.now[:alert] = 'Error in liking bookmark. Please try again.'
+   end
+     redirect_to topic_path(@bookmark.topic)
+ end
+
+ def destroy
+   @bookmark = Bookmark.find(params[:bookmark_id])
+   like = current_user.likes.find(params[:id])
+   if like.destroy
+     flash[:notice] = "Successfully unliked bookmark."
+   else
+     flash.now[:alert] = 'Error in unliking bookmark. Please try again.'
+   end
+   redirect_to topic_path(@bookmark.topic)
+>>>>>>> master
  end
 end

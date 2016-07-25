@@ -1,10 +1,11 @@
 Rails.application.routes.draw do
-  get 'bookmarks/show'
-  get 'bookmarks/new'
-  get 'bookmarks/edit'
 
   resources :topics, only: [:new, :show, :create, :destroy, :index] do
-    resources :bookmarks, only: [:show, :new, :edit, :update, :create, :destroy]
+    resources :bookmarks, only: [:new, :edit, :update, :create, :destroy]
+  end
+
+  resources :bookmarks, except: [:index] do
+    resources :likes, only: [:index, :create, :destroy]
   end
 
   devise_for :users

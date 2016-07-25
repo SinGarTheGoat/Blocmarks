@@ -1,6 +1,7 @@
 class Bookmark < ActiveRecord::Base
   belongs_to :user
   belongs_to :topic
+  has_many :likes, dependent: :destroy
   before_validation :httpset
   validates :url, format: { with: /\Ahttp:\/\/.*(com|org|net|gov)/i,
     message: "only allows valid URLs." }
