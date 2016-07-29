@@ -11,30 +11,26 @@
     </head>
 
     <body>
-        <div class="red">
-            <div class="container">
-                <div class="row">
-                    <div class="col-md-3">
-                        <ul>
-                          <h3>  <li><%= link_to "Home", root_path %></li>
-                            <%if user_signed_in? %>
-                            <li><%= link_to "Sign out", destroy_user_session_path, :method => :delete %></li>
-                        <% else %>
-                            <li><%= link_to "Sign up", new_user_registration_path %></li>
-                            <li><%=link_to "Sign in" , new_user_session_path %></li>
-                            <%end %></h3>
-                        </div>
-                        <div class="col-md-3">
-                          <h3>  <li><%= link_to "View all topics", topics_path %></li>
-                            <%if user_signed_in? %>
-                            <li><%= link_to "Create a new topic", new_topic_path %></li>
-                            <%end %>
-                          </h3>
-                        </ul>
-                    </div>
-                </div>
-            </div>
+      <nav class="navbar navbar-default navbar-fixed-top">
+        <div class=" container red">
+          <div class "navbar-header">
+            <a class="navbar-brand" href='/'>Blockmarks</a>
+          </div>
+          <ul class="nav navbar-nav">
+            <li><%= link_to "Home", root_path %></li>
+              <%if user_signed_in? %>
+              <li><%= link_to "Sign out", destroy_user_session_path, :method => :delete %></li>
+          <% else %>
+              <li><%= link_to "Sign up", new_user_registration_path %></li>
+              <li><%=link_to "Sign in" , new_user_session_path %></li>
+              <%end %>
+              <li><%= link_to "View all topics", topics_path %></li>
+                <%if user_signed_in? %>
+                <li><%= link_to "Create a new topic", new_topic_path %></li>
+                <%end %>
+            </ul>
         </div>
+      </nav>
         <% if flash[:notice] %>
         <div class="alert alert-success" role="alert"><%= flash[:notice] %></div>
         <%end%>
