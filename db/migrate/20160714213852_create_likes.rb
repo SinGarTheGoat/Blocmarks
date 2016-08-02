@@ -1,5 +1,5 @@
 class CreateLikes < ActiveRecord::Migration
-  def change
+  def change 
     create_table :likes do |t|
       t.references :bookmark, index: true, foreign_key: true
       t.references :user, index: true, foreign_key: true

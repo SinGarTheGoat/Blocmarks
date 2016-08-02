@@ -6,6 +6,10 @@ class Bookmark < ActiveRecord::Base
   validates :url, format: { with: /\Ahttp:\/\/.*(com|org|net|gov)/i,
     message: "only allows valid URLs." }
 
+  def self.liked_by(user)
+    joins(:likes).where(likes: { user_id: user.id })
+  end
+
   def  httpset
     if self.url =~ /\Ahttp:\/\/|\Ahttps:\/\//i
     else

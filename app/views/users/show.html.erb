@@ -3,13 +3,18 @@
 
 <div>
   <h1>Blockmarks I have created
-      <%= %>
+     <% @bookmarks.each do |x| %>
+      <%= x.url%>
+     <% end %>
   </h1>
 
 </div>
 
 
 <div>
-  <h1>Blockmarks I have liked</h1>
-
+  <h1>Blockmarks I have liked
+  <% @liked_bookmarks.each do |x| %>
+   <%= x.url%>
+  <% end %>
+  </h1>
 </div>
