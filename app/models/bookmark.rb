@@ -5,10 +5,11 @@ class Bookmark < ActiveRecord::Base
   before_validation :httpset
   validates :url, format: { with: /\Ahttp:\/\/.*(com|org|net|gov)/i,
     message: "only allows valid URLs." }
+  scope :liked_by, ->(user) { joins(:likes).where(likes: { user_id: user.id }) }
+  # def self.liked_by(user)
+  #   joins(:likes).where(likes: { user_id: user.id })
+  # end
 
-  def self.liked_by(user)
-    joins(:likes).where(likes: { user_id: user.id })
-  end
 
   def  httpset
     if self.url =~ /\Ahttp:\/\/|\Ahttps:\/\//i
@@ -19,7 +20,5 @@ class Bookmark < ActiveRecord::Base
         self.url = nil
       end
     end
-
   end
-
 end
