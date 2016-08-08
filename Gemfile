@@ -37,4 +37,5 @@ group :development, :test do
   gem 'shoulda'
   gem 'faker'
   gem 'factory_girl_rails'
+  gem 'dotenv-rails'
 end
