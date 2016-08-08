@@ -1,7 +1,5 @@
 Rails.application.routes.draw do
 
-  get 'users/show'
-
   resources :topics, only: [:new, :show, :create, :destroy, :index] do
     resources :bookmarks, only: [:new, :edit, :update, :create, :destroy]
   end
