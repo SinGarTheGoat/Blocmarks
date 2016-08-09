@@ -1,0 +1,16 @@
+<h1>My Blocmarks</h1>
+<p>Find me in app/views/users/show.html.erb</p>
+
+<div class=row>
+    <h1>Blockmarks I have created</h1><br>
+    <% @bookmarks.each do |bookmark| %>
+      <%= render partial: "bookmarks/bookmark", locals: { bookmark: bookmark } %>
+    <% end %>
+</div>
+
+<div class=row>
+    <h1>Blockmarks I have liked</h1>
+    <% @liked_bookmarks.each do |bookmark| %>
+      <%= render partial: "bookmarks/bookmark", locals: { bookmark: bookmark } %>
+    <% end %>
+</div>

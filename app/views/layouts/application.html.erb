@@ -11,6 +11,7 @@
     </head>
 
     <body>
+
       <nav class="navbar navbar-default navbar-fixed-top">
         <div class=" container red">
           <div class "navbar-header">
@@ -39,14 +40,6 @@
         <div class="alert alert-danger" role="alert"><%= flash[:alert] %></div>
         <%end%>
         <div class="container">
-            <div class="row">
-                <div class="col-md-6">
-                    test
-                </div>
-                <div class="col-md-6">
-                    test2
-                </div>
-            </div>
             <%= yield %>
         </div>
         <div class="container">
