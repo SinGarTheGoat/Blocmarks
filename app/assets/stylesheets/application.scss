@@ -16,6 +16,16 @@
  @import "bootstrap";
  @import "bookmarks";
 
+ .navbar-default .navbar-brand {
+     color: #FFF;
+     font-weight: bold;
+
+ }
+
+ .navbar-default .navbar-nav > li > a {
+    color: #FFF;
+}
+
 .red{
   background-color: red;
 //  text-emphasis-color: transparent;
