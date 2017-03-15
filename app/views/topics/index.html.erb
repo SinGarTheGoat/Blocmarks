@@ -6,7 +6,7 @@
   </div>
 </div >
     <% @topics.each do |topic| %>
-    <p><%= link_to topic.title, topic_path(topic.id) %> <%=topic.user_id %></p>
+    <p><%= link_to topic.title, topic_path(topic.id) %> <%=topic.user.email %></p>
     <% end %>
   </div>
 </div>
